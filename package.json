@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tokens": "style-dictionary build --config sd.config.cjs"
+  },
+  "devDependencies": {
+    "@tokens-studio/sd-transforms": "^0.9.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "style-dictionary": "^3.8.0",
+    "vite": "latest"
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest"
+  }
+}

@@ -1,0 +1,4 @@
+// simple-sd.config.cjs
+const StyleDictionary = require('style-dictionary');
+
+// This is a very basic configuration without any transforms

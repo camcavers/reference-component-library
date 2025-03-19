@@ -1,0 +1,80 @@
+{
+  "color": {
+    "base": {
+      "primary": {
+        "100": "#ebf8ff",
+        "200": "#bee3f8",
+        "300": "#90cdf4",
+        "400": "#63b3ed",
+        "500": "#4299e1",
+        "600": "#3182ce",
+        "700": "#2b6cb0",
+        "800": "#175155",
+        "900": "#1a365d"
+      },
+      "secondary": {
+        "100": "#e6fffa",
+        "200": "#b2f5ea",
+        "300": "#81e6d9",
+        "400": "#4fd1c5",
+        "500": "#38b2ac",
+        "600": "#319795",
+        "700": "#175155",
+        "800": "#234e52",
+        "900": "#1d4044"
+      },
+      "tertiary": {
+        "100": "#f5e7f2",
+        "200": "#e6c2e0",
+        "300": "#d79dce",
+        "400": "#c879bc",
+        "500": "#5E224E",
+        "600": "#984b8e",
+        "700": "#7a3c72",
+        "800": "#5E224E",
+        "900": "#3e193b"
+      }
+    },
+    "button": {
+      "primary": {
+        "bg": "{color.base.primary.800}",
+        "bg-hover": "{color.base.primary.700}",
+        "bg-active": "{color.base.primary.900}",
+        "bg-disabled": "{color.base.primary.200}",
+        "text": "#ffffff",
+        "text-hover": "#ffffff",
+        "text-active": "#ffffff",
+        "text-disabled": "{color.base.primary.500}"
+      }
+    },
+    "text": {
+      "primary": "#1a202c"
+    },
+    "background": "#ffffff"
+  },
+  "border": {
+    "radius": {
+      "sm": "4px",
+      "md": "8px",
+      "lg": "12px"
+    }
+  },
+  "size": {
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "12px",
+      "lg": "16px",
+      "xl": "24px"
+    }
+  },
+  "font": {
+    "size": {
+      "sm": "14px",
+      "md": "16px"
+    },
+    "family": {
+      "base": "'Inter', sans-serif"
+    }
+  }
+}

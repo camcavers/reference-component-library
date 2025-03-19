@@ -1,0 +1,17 @@
+{
+  "source": [
+    "./tokens/tokens.json"
+  ],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "src/",
+      "files": [
+        {
+          "destination": "test-tokens.css",
+          "format": "css/variables"
+        }
+      ]
+    }
+  }
+}
