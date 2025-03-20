@@ -187,7 +187,7 @@ async function fetchTokens(repoUrl, branch, tokensPath) {
     
     if (tokenFormat === 'dtcg') {
       console.log('Running DTCG token build process with fixed references...');
-      execSync('npm run tokens-fixed', { stdio: 'inherit' });
+      execSync('npm run tokens-dtcg', { stdio: 'inherit' });
     } else if (tokenFormat === 'original') {
       console.log('Running original token build process...');
       execSync('npm run tokens', { stdio: 'inherit' });
