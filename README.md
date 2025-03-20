@@ -103,6 +103,29 @@ This reference implementation is useful for:
 3. Designers exploring how tokens translate to code
 4. Teams establishing a design-to-development workflow
 
+## Importing Design Tokens from Git Repository
+
+This project supports importing design tokens directly from a Git repository:
+
+```bash
+# Basic usage: Import tokens.json from a repository
+npm run fetch-tokens https://github.com/username/design-tokens.git
+
+# Specify a branch (default is main)
+npm run fetch-tokens https://github.com/username/design-tokens.git develop
+
+# Specify a custom path to tokens.json within the repository
+npm run fetch-tokens https://github.com/username/design-tokens.git main path/to/tokens/tokens.json
+```
+
+This approach allows you to:
+- Version your design tokens independently
+- Share tokens across multiple projects
+- Track token changes through Git history
+- Use branch strategies for token development
+
+After fetching, the script automatically runs the token build process to generate CSS variables.
+
 ## License
 
 MIT

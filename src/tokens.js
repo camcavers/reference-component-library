@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 19 Mar 2025 22:32:47 GMT
+ * Generated on Wed, 19 Mar 2025 23:59:09 GMT
  */
 
 export const ColorBaseDefault100 = "#e9edf0";
