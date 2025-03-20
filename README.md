@@ -57,17 +57,20 @@ reference-component-library/
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/reference-component-library.git
    cd reference-component-library
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Build the design tokens:
+
    ```bash
    npm run tokens
    ```
@@ -109,16 +112,13 @@ This project supports importing design tokens directly from a Git repository:
 
 ```bash
 # Basic usage: Import tokens.json from a repository
-npm run fetch-tokens https://github.com/username/design-tokens.git
-
-# Specify a branch (default is main)
-npm run fetch-tokens https://github.com/username/design-tokens.git develop
-
-# Specify a custom path to tokens.json within the repository
-npm run fetch-tokens https://github.com/username/design-tokens.git main path/to/tokens/tokens.json
+npm run fetch-tokens
 ```
 
+Follow the interactive prompts to either input a new git repo, or use a previous one saved in the history. You can optionally specify a custom branch and/or path to the tokens JSON file via the prompts.
+
 This approach allows you to:
+
 - Version your design tokens independently
 - Share tokens across multiple projects
 - Track token changes through Git history

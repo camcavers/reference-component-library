@@ -2,6 +2,7 @@
   "repository": "https://github.com/camcavers/reference-token-repo.git",
   "branch": "main",
   "path": "tokens.json",
-  "commit": "e47fa65 Cam Cavers Wed Mar 19 16:51:52 2025 -0700 initial commit",
-  "fetchedAt": "2025-03-19T23:59:09.114Z"
+  "commit": "358db8a Cam Cavers Wed Mar 19 23:58:09 2025 -0700 Smaller border radius test",
+  "format": "dtcg",
+  "fetchedAt": "2025-03-20T06:58:17.957Z"
 }
