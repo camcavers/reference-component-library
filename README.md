@@ -34,15 +34,19 @@ Currently the library includes:
 reference-component-library/
 ├── src/
 │   ├── components/
-│   │   └── Button.jsx       # Example component using design tokens
-│   ├── App.jsx              # Demo component showcase
-│   ├── main.jsx             # Entry point
-│   ├── index.css            # Generated CSS variables from tokens
-│   └── tokens.js            # Generated JS tokens
+│   │   └── Button.jsx        # Example component using design tokens
+│   ├── App.jsx               # Demo component showcase
+│   ├── main.jsx              # Entry point
+│   ├── index.css             # Generated CSS variables from tokens
+│   └── tokens.js             # Generated JS tokens
 ├── tokens/
-│   └── tokens.json          # Design tokens from Tokens Studio for Figma
-├── sd.config.cjs            # Style Dictionary configuration
-├── build-tokens.js          # Custom token build script
+│   ├── repo-config.json      # Saves previously used Git repo info
+│   ├── tokens-processed.json # Preprocessed token data after import
+│   ├── tokens-source.json    # Saved metadata from token import
+│   └── tokens.json           # Design tokens from Tokens Studio for
+Figma
+├── sd.config.cjs             # Style Dictionary configuration
+├── build-tokens.js           # Custom token build script
 ├── package.json
 └── README.md
 ```

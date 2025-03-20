@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 
-export const Button = ({ 
-  children, 
-  onClick, 
-  variant = "primary", 
-  disabled = false 
+export const Button = ({
+  children,
+  onClick,
+  variant = "primary",
+  disabled = false,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  
+
   const getButtonStyles = () => {
-    const state = disabled ? "disabled" : isActive ? "active" : isHovered ? "hover" : "default";
-    
+    const state = disabled
+      ? "disabled"
+      : isActive
+      ? "active"
+      : isHovered
+      ? "hover"
+      : "default";
+
     return {
       backgroundColor: `var(--color-button-${variant}-background-${state})`,
       color: `var(--color-button-${variant}-text-${state})`,
@@ -22,9 +28,9 @@ export const Button = ({
       fontWeight: `var(--component-button-fontWeight)`,
       fontFamily: `var(--typography-fontFamily-primary)`,
       cursor: disabled ? "not-allowed" : "pointer",
-      boxShadow: isHovered 
-        ? `var(--component-button-shadow-hover)` 
-        : `var(--component-button-shadow-default)`,
+      boxShadow: isHovered
+        ? `var(--effect-shadow-md)`
+        : `var(--effect-shadow-sm)`,
       transition: "all 0.2s ease-in-out",
       outline: "none",
       display: "inline-flex",
@@ -32,7 +38,7 @@ export const Button = ({
       justifyContent: "center",
       textDecoration: "none",
       lineHeight: 1.2,
-      position: "relative"
+      position: "relative",
     };
   };
 
