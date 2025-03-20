@@ -106,6 +106,10 @@ This reference implementation is useful for:
 3. Designers exploring how tokens translate to code
 4. Teams establishing a design-to-development workflow
 
+## Reference: Tokens Studio + Figma Variables UI Comparison
+
+![Screenshot of Figma with Tokens Studio plugin window and Figma variables window open](readme_figma-screenshot_01.png)
+
 ## Importing Design Tokens from Git Repository
 
 This project supports importing design tokens directly from a Git repository:
