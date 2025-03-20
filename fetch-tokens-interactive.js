@@ -71,6 +71,61 @@ function addRepo(config, repoUrl, branch, tokensPath) {
   return config;
 }
 
+// Detect token format
+function detectTokenFormat(tokensContent) {
+  try {
+    const tokens = JSON.parse(tokensContent);
+    
+    // Function to recursively check if any property in the object uses $value (DTCG format)
+    function hasDTCGFormat(obj) {
+      if (obj === null || typeof obj !== 'object') {
+        return false;
+      }
+      
+      if ('$value' in obj) {
+        return true;
+      }
+      
+      if (Array.isArray(obj)) {
+        return obj.some(item => hasDTCGFormat(item));
+      }
+      
+      return Object.values(obj).some(value => hasDTCGFormat(value));
+    }
+    
+    // Function to recursively check if any property in the object uses value (old format)
+    function hasOldFormat(obj) {
+      if (obj === null || typeof obj !== 'object') {
+        return false;
+      }
+      
+      if ('value' in obj && 'type' in obj) {
+        return true;
+      }
+      
+      if (Array.isArray(obj)) {
+        return obj.some(item => hasOldFormat(item));
+      }
+      
+      return Object.values(obj).some(value => hasOldFormat(value));
+    }
+    
+    const isDTCG = hasDTCGFormat(tokens);
+    const isOldFormat = hasOldFormat(tokens);
+    
+    if (isDTCG) {
+      return 'dtcg';
+    } else if (isOldFormat) {
+      return 'original';
+    } else {
+      return 'unknown';
+    }
+  } catch (error) {
+    console.warn('Error detecting token format:', error.message);
+    return 'unknown';
+  }
+}
+
 // Fetch tokens from the repository
 async function fetchTokens(repoUrl, branch, tokensPath) {
   const tempDir = path.join(process.cwd(), 'temp-repo');
@@ -100,6 +155,10 @@ async function fetchTokens(repoUrl, branch, tokensPath) {
       fs.mkdirSync(tokensDir, { recursive: true });
     }
     
+    // Read token content to detect format
+    const tokenContent = fs.readFileSync(sourceTokensPath, 'utf8');
+    const tokenFormat = detectTokenFormat(tokenContent);
+    
     // Copy tokens file to tokens directory
     const destTokensPath = path.join(tokensDir, 'tokens.json');
     fs.copyFileSync(sourceTokensPath, destTokensPath);
@@ -119,11 +178,23 @@ async function fetchTokens(repoUrl, branch, tokensPath) {
       branch: branch,
       path: tokensPath,
       commit: commitInfo,
+      format: tokenFormat,
       fetchedAt: new Date().toISOString()
     }, null, 2));
     
-    console.log('\nRunning token build process...');
-    execSync('npm run tokens', { stdio: 'inherit' });
+    // Run the appropriate build based on detected format
+    console.log(`\nDetected token format: ${tokenFormat}`);
+    
+    if (tokenFormat === 'dtcg') {
+      console.log('Running DTCG token build process with fixed references...');
+      execSync('npm run tokens-fixed', { stdio: 'inherit' });
+    } else if (tokenFormat === 'original') {
+      console.log('Running original token build process...');
+      execSync('npm run tokens', { stdio: 'inherit' });
+    } else {
+      console.log('Format unknown, trying auto-detection...');
+      execSync('npm run tokens-auto', { stdio: 'inherit' });
+    }
     
     console.log('\n✅ Tokens successfully imported and built!');
     

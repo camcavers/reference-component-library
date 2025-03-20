@@ -1,21 +1,25 @@
 {
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "tokens": "style-dictionary build --config sd.config.cjs",
-    "fetch-tokens": "node fetch-tokens-interactive.js"
-  },
-  "devDependencies": {
-    "@tokens-studio/sd-transforms": "^0.9.1",
-    "@vitejs/plugin-react": "^4.0.0",
-    "prompts": "^2.4.2",
-    "style-dictionary": "^3.8.0",
-    "vite": "latest"
-  },
-  "dependencies": {
-    "react": "latest",
-    "react-dom": "latest"
+    "type": "module",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview",
+      "tokens": "style-dictionary build --config sd.config.cjs",
+      "tokens-dtcg": "style-dictionary build --config sd.config.dtcg.cjs",
+      "tokens-fixed": "style-dictionary build --config sd.config.dtcg.fixed.cjs",
+      "tokens-auto": "node check-tokens-format.js",
+      "fetch-tokens": "node fetch-tokens-interactive.js",
+      "fetch-tokens-auto": "node fetch-tokens-interactive.js && npm run tokens-auto"
+    },
+    "devDependencies": {
+      "style-dictionary": "^3.8.0",
+      "@tokens-studio/sd-transforms": "^0.9.1",
+      "@vitejs/plugin-react": "^4.0.0",
+      "vite": "latest",
+      "prompts": "^2.4.2"
+    },
+    "dependencies": {
+      "react": "latest",
+      "react-dom": "latest"
+    }
   }
-}
