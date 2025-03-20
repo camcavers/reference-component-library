@@ -6,7 +6,6 @@
       "preview": "vite preview",
       "tokens": "style-dictionary build --config sd.config.cjs",
       "tokens-dtcg": "style-dictionary build --config sd.config.dtcg.cjs",
-      "tokens-fixed": "style-dictionary build --config sd.config.dtcg.fixed.cjs",
       "tokens-auto": "node check-tokens-format.js",
       "fetch-tokens": "node fetch-tokens-interactive.js",
       "fetch-tokens-auto": "node fetch-tokens-interactive.js && npm run tokens-auto"
